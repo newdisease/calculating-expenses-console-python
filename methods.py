@@ -30,6 +30,7 @@ def add_category(connection):
     try:
         cursor.execute("INSERT INTO categories (category) VALUES (?)", (new_category,))
         print(f'Category "{new_category}" has been added')
+        connection.commit()
     except sqlite3.IntegrityError:
         print("couldn't add category twice")
 
@@ -47,8 +48,9 @@ def add_purchase(connection):
         cursor.execute(
             """INSERT INTO expenses (price, category_id, time) VALUES (?, ?, ?)""",
             (new_purchase, category_id, time))
+        connection.commit()
     except IndexError:
-        print('NO SUCH CATEGORY! Type "7" to add new category')
+        print('NO SUCH CATEGORY! Type "5" to add new category')
 
 
 def show_all_categories(connection):
