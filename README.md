@@ -1,4 +1,4 @@
-# Test task for ruby dev
+# Console program for calculating expenses
 
 ### Start project
 * `git clone https://repo.url` - clone repo
